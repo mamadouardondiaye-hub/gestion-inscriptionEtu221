@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 function ajouterEtudiant() {
     const nom = document.getElementById('addNom').value.trim();
     const prenom = document.getElementById('addPrenom').value.trim();
@@ -80,6 +81,8 @@ function ajouterEtudiant() {
 }
 
 // ========== MODIFIER ==========
+=======
+>>>>>>> feature/modification-etudiant
 function openEditWithId(id) {
     const etud = etudiants.find(e => e.id === id);
     if (!etud) return;
@@ -100,7 +103,10 @@ function openEditWithId(id) {
     
     openEditModal();
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> feature/modification-etudiant
 function modifierEtudiant() {
     const id = parseInt(document.getElementById('editId').value);
     const index = etudiants.findIndex(e => e.id === id);
@@ -159,6 +165,7 @@ function modifierEtudiant() {
     closeEditModal();
     renderAll();
     showToast(`${prenom} ${nom} a été modifié avec succès`, "success");
+<<<<<<< HEAD
 }
 
 // ========== ARCHIVAGE (ici ça archive au lieu de supprimer) ==========
@@ -239,3 +246,6 @@ function restoreSelectedArchives() {
     renderArchiveList();
     showToast(`${idsToRestore.length} étudiant${idsToRestore.length > 1 ? 's' : ''} restauré${idsToRestore.length > 1 ? 's' : ''}`, "success");
 }
+=======
+}
+>>>>>>> feature/modification-etudiant
