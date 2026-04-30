@@ -40,3 +40,38 @@ function confirmMultiArchive() {
     showToast(`${count} étudiant${count > 1 ? 's' : ''} archivé${count > 1 ? 's' : ''} avec succès`, "warning");
     closeMultiArchiveConfirm();
 }
+
+function restoreFromArchive(id) {
+    const index = archives.findIndex(a => a.id === id);
+    if (index !== -1) {
+        const restored = archives[index];
+        const { archivedDate, ...student } = restored;
+        etudiants.push(student);
+        archives.splice(index, 1);
+        
+        renderAll();
+        renderArchiveList();
+        showToast(`${student.prenom} ${student.nom} a été restauré`, "success");
+    }
+}
+
+function restoreSelectedArchives() {
+    if (selectedArchiveIds.size === 0) return;
+    
+    const idsToRestore = Array.from(selectedArchiveIds);
+    idsToRestore.forEach(id => {
+        const index = archives.findIndex(a => a.id === id);
+        if (index !== -1) {
+            const restored = archives[index];
+            const { archivedDate, ...student } = restored;
+            etudiants.push(student);
+            archives.splice(index, 1);
+        }
+    });
+    
+    selectedArchiveIds.clear();
+    renderAll();
+    renderArchiveList();
+    showToast(`${idsToRestore.length} étudiant${idsToRestore.length > 1 ? 's' : ''} restauré${idsToRestore.length > 1 ? 's' : ''}`, "success");
+}
+
