@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 function ajouterEtudiant() {
     const nom = document.getElementById('addNom').value.trim();
     const prenom = document.getElementById('addPrenom').value.trim();
@@ -103,10 +104,7 @@ function openEditWithId(id) {
     
     openEditModal();
 }
-<<<<<<< HEAD
 
-=======
->>>>>>> feature/modification-etudiant
 function modifierEtudiant() {
     const id = parseInt(document.getElementById('editId').value);
     const index = etudiants.findIndex(e => e.id === id);
@@ -165,10 +163,10 @@ function modifierEtudiant() {
     closeEditModal();
     renderAll();
     showToast(`${prenom} ${nom} a été modifié avec succès`, "success");
-<<<<<<< HEAD
 }
 
 // ========== ARCHIVAGE (ici ça archive au lieu de supprimer) ==========
+
 function confirmArchive() {
     if (pendingArchiveId) {
         const etud = etudiants.find(e => e.id === pendingArchiveId);
@@ -188,8 +186,8 @@ function confirmArchive() {
     }
     closeArchiveConfirm();
 }
-
 // ========== ARCHIVAGE MULTIPLE ==========
+
 function confirmMultiArchive() {
     const count = selectedIds.size;
     const idsToArchive = Array.from(selectedIds);
@@ -246,6 +244,3 @@ function restoreSelectedArchives() {
     renderArchiveList();
     showToast(`${idsToRestore.length} étudiant${idsToRestore.length > 1 ? 's' : ''} restauré${idsToRestore.length > 1 ? 's' : ''}`, "success");
 }
-=======
-}
->>>>>>> feature/modification-etudiant
